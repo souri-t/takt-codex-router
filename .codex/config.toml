@@ -1,0 +1,19 @@
+# Project-local Codex configuration. Codex loads this only after the project is trusted.
+# Keep the user's current approval, sandbox, model, and provider choices intact.
+# This project enables subagent routing and registers the three custom roles below.
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+
+[agents.takt_low]
+description = "TAKT-router low tier: narrow, reversible, low-risk tasks."
+config_file = "agents/takt_low.toml"
+
+[agents.takt_medium]
+description = "TAKT-router medium tier: multi-step changes without high-risk triggers."
+config_file = "agents/takt_medium.toml"
+
+[agents.takt_high]
+description = "TAKT-router high tier: security, data, production, or high-uncertainty work."
+config_file = "agents/takt_high.toml"
